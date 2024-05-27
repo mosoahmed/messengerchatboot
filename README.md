@@ -6,7 +6,7 @@
 Before you begin, ensure you have met the following requirements:
 
 - You have installed Node.js and npm.
-- or You have a docker machine.
+- or You can use a docker machine.
 - 
 
 ## Cloning the Repository
