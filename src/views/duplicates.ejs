@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Duplicate Transactions</title>
+</head>
+<body>
+<h1>Duplicate Transactions</h1>
+<% duplicateGroups.forEach(group => { %>
+    <h2>Category: <%= group[0] %></h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Source Account</th>
+            <th>Target Account</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% group[1].forEach(transaction => { %>
+            <tr>
+                <td><%= transaction.id %></td>
+                <td><%= transaction.sourceAccount %></td>
+                <td><%= transaction.targetAccount %></td>
+                <td><%= transaction.amount %></td>
+                <td><%= transaction.category %></td>
+                <td><%= new Date(transaction.time).toLocaleString() %></td>
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
+<% }); %>
+</body>
+</html>
