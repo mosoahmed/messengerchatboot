@@ -1,7 +1,5 @@
-// Use dotenv to read .env vars into Node
 require("dotenv").config();
 
-// Required environment variables
 const ENV_VARS = [
   "PAGE_ID",
   "APP_ID",
@@ -9,24 +7,31 @@ const ENV_VARS = [
   "APP_SECRET",
   "VERIFY_TOKEN",
   "APP_URL",
-  "SHOP_URL"
+  "SHOP_URL",
+  "ADMIN_EMAIL",
+  "EMAIL_HOST",
+  "EMAIL_PORT",
+  "EMAIL_USER",
+  "EMAIL_PASS"
 ];
 
+const missingVars = ENV_VARS.filter(varName => !process.env[varName]);
+if (missingVars.length > 0) {
+  throw new Error(`Missing required environment variables: ${missingVars.join(", ")}`);
+}
+
 module.exports = {
-  // Page and Application information
   pageId: process.env.PAGE_ID,
   appId: process.env.APP_ID,
   pageAccesToken: process.env.PAGE_ACCESS_TOKEN,
   appSecret: process.env.APP_SECRET,
   verifyToken: process.env.VERIFY_TOKEN,
-
-  // URL of your app domain
   appUrl: process.env.APP_URL,
-
-  // URL of your website
   shopUrl: process.env.SHOP_URL,
-
-  // Preferred port (default to 3000)
-  port: process.env.PORT || 3000
-
+  port: process.env.PORT || 3000,
+  adminEmail: process.env.ADMIN_EMAIL,
+  smtpHost: process.env.EMAIL_HOST,
+  smtpPort: process.env.EMAIL_PORT,
+  smtpUser: process.env.EMAIL_USER,
+  smtpPass: process.env.EMAIL_PASS
 };
