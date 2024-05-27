@@ -24,9 +24,14 @@ git clone https://github.com/mosoahmed/messengerchatboot.git
 
 1. Navigate to the cloned repository's directory.
    ```bash
-   cd <repository_name>
+   cd messengerchatboot
    ```
-2. Install the dependencies using npm.
+2. If you prefer to you docker machine, you can run the following command to start the docker container.
+   ```bash
+   docker-compose up
+   ```
+3. if you prefer to run the application locally, you can run the following command to start the application.
+5. Install the dependencies using npm.
    ```bash
    npm install
    ```
